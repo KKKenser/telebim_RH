@@ -9,10 +9,9 @@ REPO_PATH = os.path.dirname(os.path.abspath(__file__))
 OFFLINE_DIR = os.path.join(REPO_PATH, "offline_pages")
 
 URLS_TO_FETCH = [
-    "https://example.com/data_table_page",
-    "https://example.com/photo.jpg",
     # dodaj kolejne adresy (HTML lub bezpośrednie linki do JPG/PNG)
 ]
+
 
 def git_pull():
     print("🔄 Running git pull...")
@@ -26,6 +25,7 @@ def git_pull():
         print("✖ git pull failed:")
         print(result.stdout, result.stderr)
         sys.exit(1)
+
 
 def fetch_pages():
     os.makedirs(OFFLINE_DIR, exist_ok=True)
@@ -53,6 +53,7 @@ def fetch_pages():
                 print(f"  → saved HTML to {fname}")
         except Exception as e:
             print(f"  ✖ error fetching {url}: {e}")
+
 
 if __name__ == "__main__":
     git_pull()

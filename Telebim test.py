@@ -46,6 +46,8 @@ class SlideshowWindow(QMainWindow):
                 continue
             for f in os.listdir(d):
                 if f.lower().endswith(IMG_EXTS):
+                    if f.startswith('_'):
+                        continue
                     imgs.append(os.path.join(d, f))
 
         pages = []
